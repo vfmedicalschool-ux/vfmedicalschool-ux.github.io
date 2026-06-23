@@ -317,7 +317,7 @@
     <p class="cdesc">원하시는 날짜와 시간을 선택해 개별 상담을 예약해주세요.<br />예약한 상담일 전까지 반드시 STEP 2, 3을 완료해주세요.</p>
     <div class="bgrp bgrp-row">
       <button class="btn bp" onclick="showCalPop()">📅 상담 예약하기</button>
-      <button class="btn bo" onclick="showCheckPop()">✅ 등록 완료 체크리스트</button>
+      <button class="btn bo" onclick="showCheckPop()">✅ 상담 전 체크리스트</button>
     </div>
   </div>
 
@@ -326,7 +326,7 @@
 <!-- POPUP: 등록 완료 체크리스트 -->
 <div class="overlay" id="checkPop" onclick="closeCheckPop(event)">
   <div class="popup" onclick="event.stopPropagation()">
-    <h3>📋 상담 전까지 꼭 완료해주세요</h3>
+    <h3>📋 상담 전 체크리스트</h3>
     <div class="plist">
       <div class="pitem"><span class="pn n4">1</span><p>수강료 납부</p></div>
       <div class="pitem"><span class="pn n4">2</span><p>인적사항 설문 제출</p></div>
@@ -377,7 +377,7 @@
 <div class="overlay" id="calPop" onclick="closeCalPop(event)">
   <div class="popup" onclick="event.stopPropagation()">
     <h3>📅 상담 예약 전 확인해주세요</h3>
-    <p class="simple-msg">수강료 납부 확인 후 상담 예약 시스템에 <strong>로그인이 가능</strong>해요.</p>
+    <p class="simple-msg">상담 전 체크리스트 확인하셨나요?<br />상담 전까지 5가지 항목 완료되었는지 다시 한 번 확인해주세요.</p>
     <div class="pbtns">
       <button class="pbtn pb-cancel" onclick="closeCalPop()">취소</button>
       <button class="pbtn pb-ok ok-c2" onclick="goToCal()">납부했어요 →</button>
