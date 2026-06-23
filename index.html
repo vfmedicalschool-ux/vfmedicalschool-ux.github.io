@@ -265,11 +265,11 @@
 <div class="progress">
   <div class="pill p1"><span class="pdot"></span>STEP 01 · 수강료 납부</div>
   <div class="pline"></div>
-  <div class="pill p2"><span class="pdot"></span>STEP 02 · 상담 예약</div>
+  <div class="pill p2"><span class="pdot"></span>STEP 02 · 등록 TEST</div>
   <div class="pline"></div>
-  <div class="pill p3"><span class="pdot"></span>STEP 03 · 등록 TEST</div>
+  <div class="pill p3"><span class="pdot"></span>STEP 03 · 학습 가이드</div>
   <div class="pline"></div>
-  <div class="pill p4"><span class="pdot"></span>STEP 04 · 학습 가이드</div>
+  <div class="pill p4"><span class="pdot"></span>STEP 04 · 상담 예약</div>
 </div>
 
 <!-- CARDS -->
@@ -291,10 +291,10 @@
   <div class="card s2">
     <div class="gnum">02</div>
     <div class="clabel">STEP 02</div>
-    <h2 class="ctitle">개별 상담 예약하기</h2>
-    <p class="cdesc">수강료 납부를 완료하셨나요?<br />원하시는 날짜와 시간을 선택해 개별 상담을 예약해주세요.<br />예약 슬롯 취소는 1회만 가능합니다.</p>
+    <h2 class="ctitle">등록 TEST 완료하기</h2>
+    <p class="cdesc">수강료 납부를 완료하셨나요?<br />메일에 첨부된 등록 TEST 문제를 다운 받아 풀고 구글폼에 답안을 제출해주세요. 결과는 개별 상담 때 알려드려요.</p>
     <div class="bgrp">
-      <button class="btn bp" onclick="showCalPop()">📅 상담 예약하기</button>
+      <a class="btn bp" href="https://forms.gle/niGhq3jUbHNdaRPA9" target="_blank" rel="noopener">📝 TEST 답안 제출하기</a>
     </div>
   </div>
 
@@ -302,10 +302,10 @@
   <div class="card s3">
     <div class="gnum">03</div>
     <div class="clabel">STEP 03</div>
-    <h2 class="ctitle">등록 TEST 완료하기</h2>
-    <p class="cdesc">메일에 첨부된 등록 TEST 문제를 다운 받아 풀고 구글폼에 답안을 제출해주세요. 결과는 개별 상담 때 알려드려요.</p>
+    <h2 class="ctitle">VF 풀케어반 전용<br />학습 방향성 가이드 시스템</h2>
+    <p class="cdesc">상담 전 반드시 숙지해야 할 영상입니다.<br />메디컬 편입 시험에 대한 3가지 핵심 인식, 과목별 학습법, 생활관리, 풀케어반 커리큘럼을 먼저 확인해주세요.</p>
     <div class="bgrp">
-      <a class="btn bp" href="https://forms.gle/niGhq3jUbHNdaRPA9" target="_blank" rel="noopener">📝 TEST 답안 제출하기</a>
+      <button class="btn bp" onclick="showVideoWarn()">🎬 가이드 영상 확인하기</button>
     </div>
   </div>
 
@@ -313,13 +313,29 @@
   <div class="card s4">
     <div class="gnum">04</div>
     <div class="clabel">STEP 04</div>
-    <h2 class="ctitle">VF 풀케어반 전용<br />학습 방향성 가이드 시스템</h2>
-    <p class="cdesc">상담 전 반드시 숙지해야 할 영상입니다. 메디컬 편입 시험에 대한 3가지 핵심 인식, 과목별 학습법, 생활관리, 풀케어반 커리큘럼을 먼저 확인해주세요.</p>
-    <div class="bgrp">
-      <button class="btn bp" onclick="showVideoWarn()">🎬 가이드 영상 확인하기</button>
+    <h2 class="ctitle">개별 상담 예약하기</h2>
+    <p class="cdesc">원하시는 날짜와 시간을 선택해 개별 상담을 예약해주세요.<br />예약한 상담일 전까지 반드시 STEP 2, 3을 완료해주세요.</p>
+    <div class="bgrp bgrp-row">
+      <button class="btn bp" onclick="showCalPop()">📅 상담 예약하기</button>
+      <button class="btn bo" onclick="showCheckPop()">✅ 등록 완료 체크리스트</button>
     </div>
   </div>
 
+</div>
+
+<!-- POPUP: 등록 완료 체크리스트 -->
+<div class="overlay" id="checkPop" onclick="closeCheckPop(event)">
+  <div class="popup" onclick="event.stopPropagation()">
+    <h3>📋 상담 전까지 꼭 완료해주세요</h3>
+    <div class="plist">
+      <div class="pitem"><span class="pn n4">1</span><p>수강료 납부</p></div>
+      <div class="pitem"><span class="pn n4">2</span><p>인적사항 설문 제출</p></div>
+      <div class="pitem"><span class="pn n4">3</span><p>&lt;STEP 2&gt; 등록 TEST 완료</p></div>
+      <div class="pitem"><span class="pn n4">4</span><p>&lt;STEP 3&gt; 학습 방향성 가이드 영상 시청 및 이해도 TEST 완료</p></div>
+      <div class="pitem"><span class="pn n4">5</span><p>애니어그램 심리 검사 TEST 완료</p></div>
+    </div>
+    <button class="pclose" onclick="closeCheckPop()" style="width:100%">확인했어요</button>
+  </div>
 </div>
 
 <!-- POPUP: 카드 결제 -->
@@ -405,6 +421,9 @@
   function showBank(){document.getElementById('bankPop').classList.add('show')}
   function closeBank(e){if(!e||e.target===document.getElementById('bankPop'))document.getElementById('bankPop').classList.remove('show')}
 
+  function showCheckPop(){document.getElementById('checkPop').classList.add('show')}
+  function closeCheckPop(e){if(!e||e.target===document.getElementById('checkPop'))document.getElementById('checkPop').classList.remove('show')}
+
   function showCalPop(){document.getElementById('calPop').classList.add('show')}
   function closeCalPop(e){if(!e||e.target===document.getElementById('calPop'))document.getElementById('calPop').classList.remove('show')}
   function goToCal(){document.getElementById('calPop').classList.remove('show');window.location.href='https://vfmedicalschool-ux.github.io/calendar/'}
@@ -414,7 +433,7 @@
   function goToGuide(){document.getElementById('videoPop').classList.remove('show');window.location.href='https://vfmedicalschool-ux.github.io/vf-fullcarestart/'}
 
   document.addEventListener('keydown',e=>{
-    if(e.key==='Escape')['cardPop','bankPop','calPop','videoPop'].forEach(id=>document.getElementById(id).classList.remove('show'))
+    if(e.key==='Escape')['cardPop','bankPop','calPop','videoPop','checkPop'].forEach(id=>document.getElementById(id).classList.remove('show'))
   })
 </script>
 </body>
